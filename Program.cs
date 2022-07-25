@@ -22,7 +22,11 @@ namespace SigBOT
         private IServiceProvider _services;
         public async Task RunBotAsync()
         {
+            var _config = new DiscordSocketConfig();
+            _config.AlwaysDownloadUsers = true;
+
             _client = new DiscordSocketClient();
+
             _commands = new CommandService();
             _services = new ServiceCollection()
                 .AddSingleton(_client)
@@ -40,7 +44,7 @@ namespace SigBOT
             await _client.StartAsync();
 
             _client.ReactionAdded += ReactionAdded_Event;
-            _client.MessageUpdated +=
+            _client.MessageUpdated += vefBan;
 
             await Task.Delay(-1);
         }
@@ -64,13 +68,22 @@ namespace SigBOT
         public static string[] bannedWords = {
             "domal", "dobem", "m4l", "b3m", "doლаL", "domаl", "domau", "doмal", "doвeм", "domaI", "demau", "domai",
             "domaI",@"🇲🅰🇱", "doma|", "doma/", "ma!", "domel", "dumel","doevil", "DUMĂU", @"🇲 🇦 🇱",@"🇲🇦🇱","🇲al", "b€n", "b€m", "domаl", "dumal",
-            "d0mal", "d0m4l","doma0","duma0"
+            "d0mal", "d0m4l","doma0","duma0","𝚖𝚊𝚞"
         };
-        public async Task getBan(IMessage msg, IMessageChannel chn)
+        public async Task vefBan(Cacheable<IMessage, ulong> msg, SocketMessage sck, ISocketMessageChannel chn)
         {
-            SocketCommandContext context;
-            try { context = new SocketCommandContext(_client, msg as SocketUserMessage); } catch { return; }
-            getBan(msg, context);
+            try
+            {
+                SocketCommandContext context;
+                context = new SocketCommandContext(_client, sck as SocketUserMessage);
+                getBan(sck as IUserMessage, context);
+            }
+            catch (Exception e)
+            {
+                var n = e;
+                
+            }
+            
         }
         public async Task getBan(IMessage imsg, SocketCommandContext context)
         {
@@ -109,8 +122,8 @@ namespace SigBOT
             if (message.Author.IsBot) return;
 
             string msg = message.Content;
-
             await getBan(message, context);
+
 
             int argPos = 0;
             if (message.HasStringPrefix("!", ref argPos)) { 

@@ -64,20 +64,5 @@ namespace SigBOT.Modules
 
         }
 
-        static string[] verdades = {"Pokemon é coisa de viado",
-            "Comic é retardado", "Red ama o comic apesar dele ser retardado",
-            "PALMEEEEEEIRAAAAAAAAAAASSSSSSS", "Paulista paga 30 reais num cachorro quente",
-            "Platinum quer um pai, mas não consegue (thux acha que é o pai dele)", "Israel vive aroused"
-        };
-        static int count = 0;
-        [Command("umaverdade")]
-        public async Task Uma()
-        {
-            Random rnd = new Random();
-            count++;
-            if (true) ReplyAsync("não");
-            else 
-            ReplyAsync(verdades[count%verdades.Length]);
-        }
     }
 }
