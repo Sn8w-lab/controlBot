@@ -43,17 +43,71 @@ namespace SigBOT
 
             await _client.StartAsync();
 
+            reactRequests = new List<ReactCallback>();
+            reactsResults = new List<SocketReaction>();
+
+
             _client.ReactionAdded += ReactionAdded_Event;
-            _client.MessageUpdated += vefBan;
+            //_client.MessageUpdated += vefBan;
+
+            Commands.activeViceList = new List<Commands.ViceCounter>();
+            Commands.ViceController.Load();
+
 
             await Task.Delay(-1);
         }
+        public class ReactCallback
+        {
+            public SocketUser user;
+            public Emoji[] emojis;
+            public ulong messageId;
+            public string action = "";
+            public DateTime timecreated;
+            public ReactCallback(SocketUser _user, Emoji[] _emojis, ulong _messageId, string _action)
+            {
+                user = _user;
+                emojis = _emojis;
+                messageId = _messageId;
+                action = _action;
+                timecreated = DateTime.Now;
+            }
+            public bool CheckMatch(SocketReaction react)
+            {
+                var r_user = react.User.Value;
+                var r_emote = react.Emote.Name;
+                var r_messageId = react.Message.Value.Id;
+
+                
+
+                bool matchEmoji = false;
+
+                foreach (var item in emojis)
+                {
+                    if(react.Emote.Name == item.Name) { matchEmoji = true; }
+                }
+
+                return r_user.Id == user.Id && r_messageId == messageId && matchEmoji;
+            }
+        }
+        public static List<ReactCallback> reactRequests;
+        public static List<SocketReaction> reactsResults;
+
         public async Task ReactionAdded_Event(Cacheable<IUserMessage, ulong> message, Cacheable<IMessageChannel, ulong> chn, SocketReaction reaction)
         {
             if (reaction.User.Value.IsBot) return;
+            foreach (var item in reactRequests)
+            {
+                if (item.CheckMatch(reaction))
+                {
 
+                }
+            }
             
         }
+
+
+
+
         private Task _client_Log(LogMessage arg)
         {
             Console.WriteLine(arg);
@@ -65,11 +119,34 @@ namespace SigBOT
             _client.MessageReceived += HandleCommandAsync;
             await _commands.AddModulesAsync(Assembly.GetEntryAssembly(), _services);
         }
-        public static string[] bannedWords = {
+
+        public async Task HandleCommandAsync(SocketMessage arg)
+        {
+            var message = arg as SocketUserMessage;
+            SocketCommandContext context;
+            try { context = new SocketCommandContext(_client, message); } catch { return; }
+            if(context == null) { return; }
+            if (message.Author.IsBot) return;
+
+            string msg = message.Content;
+            //await getBan(message, context);
+
+
+            int argPos = 0;
+            if (message.HasStringPrefix("!", ref argPos)) { 
+                var result = await _commands.ExecuteAsync(context, argPos, _services);
+                if (!result.IsSuccess) Console.WriteLine(result.ErrorReason);
+            }
+        }
+
+
+        #region Ban
+                public static string[] bannedWords = {
             "domal", "dobem", "m4l", "b3m", "doლаL", "domаl", "domau", "doмal", "doвeм", "domaI", "demau", "domai",
             "domaI",@"🇲🅰🇱", "doma|", "doma/", "ma!", "domel", "dumel","doevil", "DUMĂU", @"🇲 🇦 🇱",@"🇲🇦🇱","🇲al", "b€n", "b€m", "domаl", "dumal",
             "d0mal", "d0m4l","doma0","duma0","𝚖𝚊𝚞"
         };
+
         public async Task vefBan(Cacheable<IMessage, ulong> msg, SocketMessage sck, ISocketMessageChannel chn)
         {
             try
@@ -81,9 +158,9 @@ namespace SigBOT
             catch (Exception e)
             {
                 var n = e;
-                
+
             }
-            
+
         }
         public async Task getBan(IMessage imsg, SocketCommandContext context)
         {
@@ -112,24 +189,7 @@ namespace SigBOT
                 }
             }
 
-        }
-        public async Task HandleCommandAsync(SocketMessage arg)
-        {
-            var message = arg as SocketUserMessage;
-            SocketCommandContext context;
-            try { context = new SocketCommandContext(_client, message); } catch { return; }
-            if(context == null) { return; }
-            if (message.Author.IsBot) return;
-
-            string msg = message.Content;
-            await getBan(message, context);
-
-
-            int argPos = 0;
-            if (message.HasStringPrefix("!", ref argPos)) { 
-                var result = await _commands.ExecuteAsync(context, argPos, _services);
-                if (!result.IsSuccess) Console.WriteLine(result.ErrorReason);
-            }
-        }
+        } 
+        #endregion
     }
 }
