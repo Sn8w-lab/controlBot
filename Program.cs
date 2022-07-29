@@ -126,6 +126,7 @@ namespace SigBOT
             SocketCommandContext context;
             try { context = new SocketCommandContext(_client, message); } catch { return; }
             if(context == null) { return; }
+            if(context.Channel.Id.ToString() != "1002367493714743296") { return; }
             if (message.Author.IsBot) return;
 
             string msg = message.Content;

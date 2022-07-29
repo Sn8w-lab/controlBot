@@ -133,8 +133,8 @@ namespace SigBOT.Modules
             ViceController.Save();
         }
 
-        public static string endString = " .  ViceCounter v0.12";
-        [Command("vc")]
+        public static string endString = @". _ViceCounter v0.65_";
+        [Command("vices")]
         public async Task ViceTracks()
         {
             var cmdId = Context.User.Id.ToString();
@@ -148,11 +148,38 @@ namespace SigBOT.Modules
             foreach (var item in list)
             {
                 TimeSpan timeSince = DateTime.Now.Subtract(item.dataInicio);
-                await ReplyAsync("Tracking :  " + Context.User.Username+ @"'s " + item.type.ToString("g") + " vice. "
-                     + timeSince.Days + " Days and " + (timeSince.TotalHours % 24).ToString("0.00") + " Hours since start.");
+                await ReplyAsync(Context.User.Username + @"'s " + item.type.ToString("g") + " vice. "
+                     + timeSince.Days + " Days and " + (timeSince.TotalHours % 24).ToString("0.0") + " Hours since start.");
                 //await ReplyAsync(@"Did you lose ? if you did, type  '!lost' + cigar, weed or porn, Ex: !lostcigar .");
             }
             ViceController.Save();
+        }
+        [Command("lostweed")]
+        public async Task LostWeed()
+        {
+            await LostAtVice(ViceType.Weed, Context);
+        }
+        [Command("lostcigar")]
+        public async Task LostCigar()
+        {
+            await LostAtVice(ViceType.Ciggarettes, Context);
+        }
+        [Command("lostporn")]
+        public async Task LostPorn()
+        {
+            await LostAtVice(ViceType.Porn, Context);
+        }
+
+
+
+        public async Task LostAtVice(ViceType vice, SocketCommandContext context)
+        {            
+            var cmdId = context.User.Id.ToString();
+            var list = activeViceList.Where(x => x.userId == cmdId && x.type == vice);
+
+            activeViceList.Remove(list.First());
+            
+            await ReplyAsync("Que vergonha, " + context.User.Username + ", mas relaxe, você sempre pode recomeçar.");
         }
 
         [Serializable]
