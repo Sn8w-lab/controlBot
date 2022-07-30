@@ -2,18 +2,53 @@
 <ViceSave xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <vices>
     <ViceCounter>
-      <dataInicio>2022-07-28T20:03:26.8106058-03:00</dataInicio>
+      <dataInicio>2022-07-28T22:54:37.4568788-03:00</dataInicio>
+      <dataPerda>0001-01-01T00:00:00</dataPerda>
+      <userId>474753425503158284</userId>
+      <userName>strangefella</userName>
+      <type>Porn</type>
+    </ViceCounter>
+    <ViceCounter>
+      <dataInicio>2022-07-28T23:15:09.1252966-03:00</dataInicio>
+      <dataPerda>0001-01-01T00:00:00</dataPerda>
+      <userId>961226460230717481</userId>
+      <userName>Revencort</userName>
+      <type>Porn</type>
+    </ViceCounter>
+    <ViceCounter>
+      <dataInicio>2022-07-29T07:13:46.2710074-03:00</dataInicio>
+      <dataPerda>0001-01-01T00:00:00</dataPerda>
+      <userId>242699598655651841</userId>
+      <userName>Stefan</userName>
+      <type>Porn</type>
+    </ViceCounter>
+    <ViceCounter>
+      <dataInicio>2022-07-29T18:16:39.1741876-03:00</dataInicio>
       <dataPerda>0001-01-01T00:00:00</dataPerda>
       <userId>295268589626458112</userId>
       <userName>&lt;div&gt; int</userName>
       <type>Porn</type>
     </ViceCounter>
     <ViceCounter>
-      <dataInicio>2022-07-28T21:21:01.418437-03:00</dataInicio>
+      <dataInicio>2022-07-29T20:25:19.6312188-03:00</dataInicio>
+      <dataPerda>0001-01-01T00:00:00</dataPerda>
+      <userId>444600816087728136</userId>
+      <userName>𝚂𝙽𝟾𝚆</userName>
+      <type>Ciggarettes</type>
+    </ViceCounter>
+    <ViceCounter>
+      <dataInicio>2022-07-29T21:12:44.1276452-03:00</dataInicio>
       <dataPerda>0001-01-01T00:00:00</dataPerda>
       <userId>444600816087728136</userId>
       <userName>𝚂𝙽𝟾𝚆</userName>
       <type>Porn</type>
+    </ViceCounter>
+    <ViceCounter>
+      <dataInicio>2022-07-29T21:12:53.3535236-03:00</dataInicio>
+      <dataPerda>0001-01-01T00:00:00</dataPerda>
+      <userId>444600816087728136</userId>
+      <userName>𝚂𝙽𝟾𝚆</userName>
+      <type>Ciggarettes</type>
     </ViceCounter>
   </vices>
 </ViceSave>

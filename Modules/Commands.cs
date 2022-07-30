@@ -47,34 +47,26 @@ namespace SigBOT.Modules
                 Context.User,
                 emojis,
                 message.Id,
-                "teste"
-                )); 
+                "teste" )); 
         }
 
 
         static int pingCount = 0;
         public static int replyStatus = 0;        
-        public class ViceCounter
+        
+
+        #region VicesTypes
+        public enum ViceType
         {
-            public DateTime dataInicio, dataPerda;
-            public string userId, userName;
-            public ViceType type;
-
-            public void Init(ViceType vice, SocketUser user)
-            {
-                type = vice;
-                userId = user.Id.ToString();
-                userName = user.Username;
-                dataInicio = DateTime.Now;
-
-            }
-            public ViceCounter()
-            {
-            }
+            Weed,
+            Ciggarettes,
+            Porn,
         }
+
         string weedPhrase = "decided to STOP SMOKING WEED at : ";
         string cigarPhrase = "decided to STOP SMOKING CIGARS at : ";
         string pornPhrase = "decided to STOP WATCHING PORN at : ";
+
         [Command("weed")]
         public async Task Weed()
         {
@@ -132,7 +124,9 @@ namespace SigBOT.Modules
             activeViceList.Add(vice);
             ViceController.Save();
         }
+        #endregion
 
+        #region ViceFunctions
         public static string endString = @". _ViceCounter v0.65_";
         [Command("vices")]
         public async Task ViceTracks()
@@ -181,7 +175,9 @@ namespace SigBOT.Modules
             
             await ReplyAsync("Que vergonha, " + context.User.Username + ", mas relaxe, você sempre pode recomeçar.");
         }
+        #endregion
 
+        #region ViceController&Counter&Save_Classes
         [Serializable]
         public class ViceSave
         {
@@ -191,7 +187,24 @@ namespace SigBOT.Modules
             {
             }
         }
+        public class ViceCounter
+        {
+            public DateTime dataInicio, dataPerda;
+            public string userId, userName;
+            public ViceType type;
 
+            public void Init(ViceType vice, SocketUser user)
+            {
+                type = vice;
+                userId = user.Id.ToString();
+                userName = user.Username;
+                dataInicio = DateTime.Now;
+
+            }
+            public ViceCounter()
+            {
+            }
+        }
         public static List<ViceCounter> activeViceList;
         public class ViceController
         {
@@ -211,11 +224,7 @@ namespace SigBOT.Modules
                 catch(Exception) { };
             }
         }
-        public enum ViceType
-        {
-            Weed,
-            Ciggarettes,
-            Porn,
-        }
+        #endregion
+
     }
 }
