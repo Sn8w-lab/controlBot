@@ -139,6 +139,7 @@ namespace SigBOT.Modules
         {
             var cmdId = Context.User.Id.ToString();
             var list = activeViceList.Where(x => x.userId == cmdId);
+            string printedList = "";
 
             if(list == null || list.Count() < 1 )
             {
@@ -148,10 +149,9 @@ namespace SigBOT.Modules
             foreach (var item in list)
             {
                 TimeSpan timeSince = DateTime.Now.Subtract(item.dataInicio);
-                await ReplyAsync(Context.User.Username + @"'s " + item.type.ToString("g") + " vice. "
-                     + timeSince.Days + " Days and " + (timeSince.TotalHours % 24).ToString("0.0") + " Hours since start.");
-                //await ReplyAsync(@"Did you lose ? if you did, type  '!lost' + cigar, weed or porn, Ex: !lostcigar .");
-            }
+                printedList += (Context.User.Username + @"'s " + item.type.ToString("g") + " vice. " + timeSince.Days + " Days and " + (timeSince.TotalHours % 24).ToString("0.0") + " Hours since start." + "\n");
+           }
+            await ReplyAsync(printedList);
             ViceController.Save();
         }
         [Command("lostweed")]
