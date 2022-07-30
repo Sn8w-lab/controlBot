@@ -208,8 +208,8 @@ namespace SigBOT.Modules
         public static List<ViceCounter> activeViceList;
         public class ViceController
         {
-            public static string fileName = "viceControllerdata.dat";
-            public static string path = @"C:\Users\Gabe\source\repos\SigBOT\bin\Debug\netcoreapp3.1\";
+            public static string fileName = "\\viceControllerdata.dat";
+            public static string path = AppDomain.CurrentDomain.BaseDirectory;
 
             public static void Save()
             {
