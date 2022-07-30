@@ -210,12 +210,11 @@
       ]
     },
     "Discord.Net.Commands/3.7.2": {
-      "sha512": "aOEGP04X64htsTr7ozKj9qHpmvOfitSw5gfR8Tw9TX0+FdswD2LNL2KfOAIaxRKZmRTm34aXQEJrVq0K8AptmQ==",
+      "sha512": "xGwMChDstZCHkOJZMD0pp0qEy7MyJs8Lu1S05p5dF+WLNgr885qX5GmqYMBbAr4jT9tMn0sGn42QVCbvrQFo1g==",
       "type": "package",
       "path": "discord.net.commands/3.7.2",
       "files": [
         ".nupkg.metadata",
-        ".signature.p7s",
         "PackageLogo.png",
         "discord.net.commands.3.7.2.nupkg.sha512",
         "discord.net.commands.nuspec",
@@ -254,12 +253,11 @@
       ]
     },
     "Discord.Net.Interactions/3.7.2": {
-      "sha512": "dwGhEdDB0yyo/lGtjwIDVZmsuD52di7lIZWu/sBtvvA05dMgYZq5S6ILdsBXjOyaHeXd+EV4YMlj2VS/rm619w==",
+      "sha512": "R3bWfQRW22oJFKv9ewWgz98lxBOh9B3qWFE2oefCrC/HUtbOkGJRlg5YXrxZdGk08nUU7cMJ61KZpGV3MH7tcg==",
       "type": "package",
       "path": "discord.net.interactions/3.7.2",
       "files": [
         ".nupkg.metadata",
-        ".signature.p7s",
         "PackageLogo.png",
         "discord.net.interactions.3.7.2.nupkg.sha512",
         "discord.net.interactions.nuspec",
@@ -298,12 +296,11 @@
       ]
     },
     "Discord.Net.Webhook/3.7.2": {
-      "sha512": "da3i/mTq2y7mfj3xlHH14S4PivHbflJCVr8OUikJtQrxBOxvPkqP7ZYk3Y9S28q0K8qik+TUjCcjL5gELKrh/A==",
+      "sha512": "Dp9I22QiSidTcLLQL/ngUugYFAVHPqmvggZWCuEabqADpRA2YbC/tKgOw1zSyGcwE+sH6eGnJVRNJYvtNjaWTw==",
       "type": "package",
       "path": "discord.net.webhook/3.7.2",
       "files": [
         ".nupkg.metadata",
-        ".signature.p7s",
         "PackageLogo.png",
         "discord.net.webhook.3.7.2.nupkg.sha512",
         "discord.net.webhook.nuspec",
@@ -318,12 +315,11 @@
       ]
     },
     "Discord.Net.WebSocket/3.7.2": {
-      "sha512": "pYCd6ET44ADaNiyEw82TaJnR7TKYHfrKCytWFWMPL5faJhoh260avZn3Hwunlf331lEQ0f4K1CujPkQbNuq7kQ==",
+      "sha512": "sx9uNBkIT3eB0qh115Al5c7guOUKECep0PoaD7/Sh2B9z0ZOKBghwx4ncAiYfdPC35DZTiNZNDnOy2u10gIR1Q==",
       "type": "package",
       "path": "discord.net.websocket/3.7.2",
       "files": [
         ".nupkg.metadata",
-        ".signature.p7s",
         "PackageLogo.png",
         "discord.net.websocket.3.7.2.nupkg.sha512",
         "discord.net.websocket.nuspec",
@@ -594,19 +590,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\user\\.nuget\\packages\\": {}
+    "C:\\Users\\Gabe\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\user\\Documents\\GitHub\\controlBot\\SigBOT.csproj",
+      "projectUniqueName": "C:\\Users\\Gabe\\source\\repos\\SigBOT\\SigBOT.csproj",
       "projectName": "SigBOT",
-      "projectPath": "C:\\Users\\user\\Documents\\GitHub\\controlBot\\SigBOT.csproj",
-      "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\user\\Documents\\GitHub\\controlBot\\obj\\",
+      "projectPath": "C:\\Users\\Gabe\\source\\repos\\SigBOT\\SigBOT.csproj",
+      "packagesPath": "C:\\Users\\Gabe\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Gabe\\source\\repos\\SigBOT\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Gabe\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -614,7 +610,8 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {}
+        "https://api.nuget.org/v3/index.json": {},
+        "https://www.myget.org/F/discord-net/api/v3/index.json": {}
       },
       "frameworks": {
         "netcoreapp3.1": {
@@ -651,30 +648,12 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "downloadDependencies": [
-          {
-            "name": "Microsoft.AspNetCore.App.Ref",
-            "version": "[3.1.10, 3.1.10]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Host.win-x64",
-            "version": "[3.1.27, 3.1.27]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Ref",
-            "version": "[3.1.0, 3.1.0]"
-          },
-          {
-            "name": "Microsoft.WindowsDesktop.App.Ref",
-            "version": "[3.1.0, 3.1.0]"
-          }
-        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
       }
     }
   }
