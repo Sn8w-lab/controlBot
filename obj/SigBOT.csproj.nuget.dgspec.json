@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Gabe\\source\\repos\\SigBOT\\SigBOT.csproj": {}
+    "C:\\Users\\user\\Documents\\GitHub\\controlBot\\SigBOT.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Gabe\\source\\repos\\SigBOT\\SigBOT.csproj": {
+    "C:\\Users\\user\\Documents\\GitHub\\controlBot\\SigBOT.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Gabe\\source\\repos\\SigBOT\\SigBOT.csproj",
+        "projectUniqueName": "C:\\Users\\user\\Documents\\GitHub\\controlBot\\SigBOT.csproj",
         "projectName": "SigBOT",
-        "projectPath": "C:\\Users\\Gabe\\source\\repos\\SigBOT\\SigBOT.csproj",
-        "packagesPath": "C:\\Users\\Gabe\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Gabe\\source\\repos\\SigBOT\\obj\\",
+        "projectPath": "C:\\Users\\user\\Documents\\GitHub\\controlBot\\SigBOT.csproj",
+        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\user\\Documents\\GitHub\\controlBot\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Gabe\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,8 +22,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://www.myget.org/F/discord-net/api/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp3.1": {
@@ -48,6 +47,10 @@
             "Microsoft.Extensions.DependencyInjection": {
               "target": "Package",
               "version": "[6.0.0, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.1, )"
             }
           },
           "imports": [
@@ -65,7 +68,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     }

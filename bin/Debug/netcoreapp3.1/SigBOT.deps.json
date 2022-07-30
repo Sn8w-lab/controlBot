@@ -10,6 +10,7 @@
         "dependencies": {
           "Discord.Net": "3.7.2",
           "Microsoft.Extensions.DependencyInjection": "6.0.0",
+          "Newtonsoft.Json": "13.0.1",
           "System.Reactive.Reference": "5.0.0.0"
         },
         "runtime": {
