@@ -4,12 +4,14 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Threading.Channels;
 using System.Text;
+using System.Net;
 using Discord;
 using System.Reflection;
 using Discord.Commands;
 using Discord.WebSocket;
 using SigBOT.Modules;
 using Microsoft.Extensions.DependencyInjection;
+using Newtonsoft.Json;
 
 namespace SigBOT.Modules
 {
@@ -28,6 +30,18 @@ namespace SigBOT.Modules
                 await ReplyAsync("Ganhei, seu merda");
             }
 
+        }
+
+        [Command("stoic")]
+        public async Task Stoic()
+        {
+            var json = new WebClient().DownloadString("https://stoicquotesapi.com/v1/api/quotes/random");
+            dynamic stuff = JsonConvert.DeserializeObject(json);
+            string body = "\"" + stuff.body + "\"";
+            string author = "***" + stuff.author + "***";
+            {
+                await ReplyAsync(body + "\n" + author);
+            }
         }
         public async Task GetReactMessage_Event(Cacheable<IUserMessage, ulong> message, Cacheable<IMessageChannel, ulong> chn, SocketReaction reaction)
         {
