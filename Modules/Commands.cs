@@ -149,7 +149,7 @@ namespace SigBOT.Modules
             var list = activeViceList.Where(x => x.userId == cmdId);
             string printedList = "";
 
-            if(list == null || list.Count() < 1 )
+            if (list == null || list.Count() < 1 )
             {
                 await ReplyAsync("This user has no Vices being tracked : " + Context.User.Username);
                 return;
@@ -159,7 +159,19 @@ namespace SigBOT.Modules
                 TimeSpan timeSince = DateTime.Now.Subtract(item.dataInicio);
                 printedList += (Context.User.Username + @"'s " + item.type.ToString("g") + " vice. " + timeSince.Days + " Days and " + (timeSince.TotalHours % 24).ToString("0.0") + " Hours since start." + "\n");
            }
-            await ReplyAsync(printedList);
+            var builder = new EmbedBuilder()
+            {
+                Color = Color.Red,
+                Description = "These are " + Context.User.Username + @"'s " + "vices."
+            };
+            builder.AddField(x =>
+            {
+                x.Name = Context.User.Username;
+                x.Value = printedList;
+                x.IsInline = false;
+            });
+            //await ReplyAsync(printedList);
+            await ReplyAsync("", false, builder.Build());
             ViceController.Save();
         }
         [Command("lostweed")]

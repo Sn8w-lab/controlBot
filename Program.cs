@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Text;
+using System.IO;
 using Discord;
-
+using Newtonsoft.Json;
 using System.Reflection;
 using Discord.Commands;
 using Discord.WebSocket;
@@ -32,9 +33,7 @@ namespace SigBOT
                 .AddSingleton(_client)
                 .AddSingleton(_commands)
                 .BuildServiceProvider();
-
-            string token = "MTAwMTA1OTIzNTU3NDA3MTMwNg.GR59rA.y8yDLbTNDQ_cdgTG59J38tBRVwy-aR-HiK8rMI";
-
+            string token = JsonConvert.DeserializeObject<string>(File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + @"\config.json")));
             _client.Log += _client_Log;
 
             await RegisterCommandsAsync();
